@@ -1,0 +1,25 @@
+<h1>Listing Transactions</h1>
+
+<%= link_to 'New transaction', new_transaction_path %>
+
+<table>
+  <tr>
+    <th>Accounted_on</th>
+    <th>Amount</th>
+    <th>Transacion Type</th>
+    <th>Explanation</th>
+  </tr>
+  <% @transactions.each do |transaction| %>
+  <tr>
+    <td><%= transaction.accounted_on %></td>
+    <td><%= transaction.amount %></td>
+    <td><%= transaction.transaction_type %></td>
+    <td><%= transaction.explanation %></td>
+    <td><%= link_to 'Show', transaction_path(transaction) %></td>
+    <td><%= link_to 'Edit', edit_transaction_path(transaction) %></td>
+    <td><%= link_to 'Destroy', [transaction],
+            method: :delete,
+            data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+  <% end %>
+</table>

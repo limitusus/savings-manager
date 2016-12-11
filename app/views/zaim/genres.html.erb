@@ -1,0 +1,18 @@
+<h1>Genres</h1>
+
+<table>
+  <tr>
+    <th>ID</th>
+    <th>Category ID</th>
+    <th>Name</th>
+  </tr>
+  <% @category_ids.each do |category_id| %>
+    <% @genres['genres'].select{ |g| g['category_id'] == category_id }.each do |genre| %>
+    <tr>
+      <td><%= genre['id'] %></td>
+      <td><%= genre['category_id'] %></td>
+      <td><%= genre['name'] %></td>
+    </tr>
+    <% end %>
+  <% end %>
+</table>

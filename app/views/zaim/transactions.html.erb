@@ -1,0 +1,30 @@
+<h1>Transactions</h1>
+
+<p>
+  <%= @transactions.size %> transactions
+</p>
+
+<table>
+  <tr>
+    <th>ID</th>
+    <th>date</th>
+    <th>mode</th>
+    <th>category_id</th>
+    <th>from</th>
+    <th>to</th>
+    <th>amount</th>
+    <th>comment</th>
+  </tr>
+  <% @transactions.each do |tx| %>
+  <tr>
+    <td><%= tx['id'] %></td>
+    <td><%= tx['date'] %></td>
+    <td><%= tx['mode'] %></td>
+    <td><%= tx['category_id'] %></td>
+    <td><%= tx['from_account_id'] %></td>
+    <td><%= tx['to_account_id'] %></td>
+    <td><%= tx['amount'] %></td>
+    <td><%= tx['comment'] %></td>
+  </tr>
+  <% end %>
+</table>

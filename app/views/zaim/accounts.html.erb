@@ -1,0 +1,14 @@
+<h1>Accounts</h1>
+
+<table>
+  <tr>
+    <th>ID</th>
+    <th>Name</th>
+  </tr>
+  <% @accounts['accounts'].each do |account| %>
+  <tr>
+    <td><%= account['id'] %></td>
+    <td><%= account['name'] %></td>
+  </tr>
+  <% end %>
+</table>

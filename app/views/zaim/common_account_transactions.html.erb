@@ -1,0 +1,41 @@
+<h1>Transactions</h1>
+
+<p>
+  Account ID: <%= @target_account_id %>
+</p>
+<p>
+  Balance: <%= @sum %>
+</p>
+<p>
+  <%= @transactions.size %> transactions
+</p>
+
+<table>
+  <tr>
+    <th>ID</th>
+    <th>date</th>
+    <th>mode</th>
+    <th>category_id</th>
+    <th>from</th>
+    <th>to</th>
+    <th>amount</th>
+    <th>Balance</th>
+    <th>comment</th>
+  </tr>
+  <% @transactions.each do |tx| %>
+  <tr>
+    <td><%= tx['id'] %></td>
+    <td><%= tx['date'] %></td>
+    <td><%= tx['mode'] %></td>
+    <td><%= tx['category_id'] %></td>
+    <td><%= tx['from_account_id'] %></td>
+    <td><%= tx['to_account_id'] %></td>
+    <td><%= tx['amount'] %></td>
+    <td>
+      <%= @sum %>
+      <% @sum += (tx['from_account_id'] == @target_account_id ? 1 : -1) * tx['amount'] %>
+    </td>
+    <td>HIMITSU</td>
+  </tr>
+  <% end %>
+</table>
